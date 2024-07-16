@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Grid Layout with Gap</title>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Grid Template Columns</h2>
+        <div id="columnsContainer">
+            <!-- Column inputs will be dynamically added here -->
+        </div>
+        <button onclick="addColumn()">Add Column</button>
+        
+        <h2>Grid Template Rows</h2>
+        <div id="rowsContainer">
+            <!-- Row inputs will be dynamically added here -->
+        </div>
+        <button onclick="addRow()">Add Row</button>
+
+        <button onclick="updateGrid()">Update Grid</button>
+    </div>
+    <div class="grid-container" id="gridContainer">
+        <!-- Grid items will be dynamically added here -->
+    </div>
+    <div class="css-output" id="cssOutput">
+        <h2>Generated CSS</h2>
+        <pre id="cssCode"></pre>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
