@@ -1,4 +1,3 @@
-
 function addRow() {
     const rowsContainer = document.getElementById('rowsContainer');
     const rowDiv = document.createElement('div');
@@ -15,8 +14,12 @@ function addRow() {
     const optionPx = document.createElement('option');
     optionPx.value = 'px';
     optionPx.textContent = 'px';
+    const optionPercent = document.createElement('option');
+    optionPercent.value = '%';
+    optionPercent.textContent = '%';
     select.appendChild(optionFr);
     select.appendChild(optionPx);
+    select.appendChild(optionPercent);
 
     const removeButton = document.createElement('button');
     removeButton.textContent = '✖';
@@ -45,8 +48,12 @@ function addColumn() {
     const optionPx = document.createElement('option');
     optionPx.value = 'px';
     optionPx.textContent = 'px';
+    const optionPercent = document.createElement('option');
+    optionPercent.value = '%';
+    optionPercent.textContent = '%';
     select.appendChild(optionFr);
     select.appendChild(optionPx);
+    select.appendChild(optionPercent);
 
     const removeButton = document.createElement('button');
     removeButton.textContent = '✖';
@@ -74,6 +81,12 @@ function updateGrid() {
         const unit = columnDiv.querySelector('select').value;
         return input + unit;
     });
+
+    const rowGap = document.getElementById('rowGap').value + document.getElementById('rowGapUnit').value;
+    const columnGap = document.getElementById('columnGap').value + document.getElementById('columnGapUnit').value;
+
+    const alignItems = document.getElementById('alignItems').value;
+    const justifyItems = document.getElementById('justifyItems').value;
     
     const gridContainer = document.getElementById('gridContainer');
     gridContainer.innerHTML = ''; // Clear previous grid items
@@ -81,6 +94,10 @@ function updateGrid() {
     // Set grid container styles
     gridContainer.style.gridTemplateColumns = columns.join(' ');
     gridContainer.style.gridTemplateRows = rows.join(' ');
+    gridContainer.style.rowGap = rowGap;
+    gridContainer.style.columnGap = columnGap;
+    gridContainer.style.alignItems = alignItems;
+    gridContainer.style.justifyItems = justifyItems;
 
     const rowCount = rows.length;
     const columnCount = columns.length;
@@ -99,6 +116,10 @@ function updateGrid() {
     display: grid;
     grid-template-columns: ${columns.join(' ')};
     grid-template-rows: ${rows.join(' ')};
+    row-gap: ${rowGap};
+    column-gap: ${columnGap};
+    align-items: ${alignItems};
+    justify-items: ${justifyItems};
 }
 `;
     document.getElementById('cssCode').textContent = cssCode;

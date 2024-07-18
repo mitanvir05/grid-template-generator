@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Grid Layout with Gap</title>
+    <title>Dynamic Grid Layout with Gap and Alignment</title>
     <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
@@ -19,6 +19,40 @@
             <!-- Row inputs will be dynamically added here -->
         </div>
         <button onclick="addRow()">Add Row</button>
+        
+        <h2>Grid Gaps</h2>
+        <label for="rowGap">Row Gap:</label>
+        <div class="gap-input">
+            <input type="number" id="rowGap" value="0">
+            <select id="rowGapUnit">
+                <option value="px">px</option>
+                <option value="%">%</option>
+            </select>
+        </div>
+        <label for="columnGap">Column Gap:</label>
+        <div class="gap-input">
+            <input type="number" id="columnGap" value="0">
+            <select id="columnGapUnit">
+                <option value="px">px</option>
+                <option value="%">%</option>
+            </select>
+        </div>
+
+        <h2>Item Alignment</h2>
+        <label for="alignItems">Align Items:</label>
+        <select id="alignItems">
+            <option value="stretch">Stretch</option>
+            <option value="start">Start</option>
+            <option value="center">Center</option>
+            <option value="end">End</option>
+        </select>
+        <label for="justifyItems">Justify Items:</label>
+        <select id="justifyItems">
+            <option value="stretch">Stretch</option>
+            <option value="start">Start</option>
+            <option value="center">Center</option>
+            <option value="end">End</option>
+        </select>
 
         <button onclick="updateGrid()">Update Grid</button>
     </div>
